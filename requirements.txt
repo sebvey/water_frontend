@@ -1,0 +1,8 @@
+# utilities
+python-dotenv
+
+# frontend
+streamlit
+
+# data
+pandas
