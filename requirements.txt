@@ -3,6 +3,7 @@ python-dotenv
 
 # frontend
 streamlit
+pydeck
 
 # data
 pandas
