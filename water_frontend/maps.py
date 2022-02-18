@@ -1,8 +1,6 @@
 import pydeck as pdk
 import pandas as pd
 
-import streamlit as st
-
 from water_frontend import util
 
 import os
@@ -20,18 +18,23 @@ def get_deck(stations,station_id):
     # Sets the icons data
     # Current station is red, others are green
 
-    GREEN_ICON_URL = os.path.join(DATA_DIR,'location_icon_green.png')
-    RED_ICON_URL = os.path.join(DATA_DIR,'location_icon_red.png')
+    # GREEN_ICON_URL = os.path.join(DATA_DIR,'location_icon_green.png')
+    # RED_ICON_URL = os.path.join(DATA_DIR,'location_icon_red.png')
+
+    GREEN_ICON_URL = 'https://raw.githubusercontent.com/sebvey/water_frontend/main/data/location_icon_green.png'
+    RED_ICON_URL = 'https://raw.githubusercontent.com/sebvey/water_frontend/main/data/location_icon_red.png'
+
+
 
     green_icon_data = {
-        "url": util.get_png_data_url(GREEN_ICON_URL),
+        "url": GREEN_ICON_URL, # util.get_png_data_url(GREEN_ICON_URL),
         "width": 128,
         "height": 128,
         "anchorY": 128,
     }
 
     red_icon_data = {
-        "url": util.get_png_data_url(RED_ICON_URL),
+        "url": RED_ICON_URL, # util.get_png_data_url(RED_ICON_URL),
         "width": 128,
         "height": 128,
         "anchorY": 128,
@@ -55,7 +58,7 @@ def get_deck(stations,station_id):
     view_state = pdk.ViewState(
         latitude=lat,
         longitude=lon,
-        zoom=7,
+        zoom=9,
         min_zoom=5,
         max_zoom=13,
         pitch=0,
@@ -66,7 +69,7 @@ def get_deck(stations,station_id):
         data=saone_trace,
         get_color="color",
         width_scale=40,
-        width_min_pixels=3,
+        width_min_pixels=5,
         opacity=0.7,
         joint_rounded=True,
         cap_rounded=True,
@@ -81,7 +84,6 @@ def get_deck(stations,station_id):
         get_size="icon_size",
         size_scale=5,
         get_position=["lon", "lat"],
-        pickable=True,
     )
 
     deck = pdk.Deck(
