@@ -10,4 +10,7 @@ COPY app.py app.py
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+EXPOSE $PORT
+
 CMD streamlit run app.py --server.port $PORT
+

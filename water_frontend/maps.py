@@ -44,11 +44,11 @@ def get_deck(stations,station_id):
     stations["icon_size_scale"] = None
 
     for i in stations.index :
-        stations.loc[i,'icon_data'] = [green_icon_data]
-        stations.loc[i, 'icon_size'] = 7
+        stations['icon_data'][i] = green_icon_data
+        stations.loc[i, 'icon_size'] = 8
 
-    stations.loc[station_id,'icon_data'] = [red_icon_data]
-    stations.loc[station_id, 'icon_size'] = 9
+    stations['icon_data'][station_id] = red_icon_data
+    stations.loc[station_id,'icon_size'] = 10
 
     # View coordiantes = actual station coordinates
     lat = stations.loc[station_id,'lat']
